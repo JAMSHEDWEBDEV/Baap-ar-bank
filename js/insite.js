@@ -4,9 +4,15 @@ document.getElementById('deposit_btn').addEventListener('click',function(){
     const depositAmount = parseFloat(depositTotalValueString);
     depositTotalValue.value = '';
     
+    
     const previousDepositElement = document.getElementById('previous_deposit');
     const previouDepositTotalString = previousDepositElement.innerText;
     const previousDepositAmount = parseFloat(previouDepositTotalString);
+
+    if(isNaN(depositAmount)){
+        alert('please insert number');
+        return;
+    }
     
     const newDepositAmount = previousDepositAmount + depositAmount;
     previousDepositElement.innerText = newDepositAmount;
@@ -23,6 +29,10 @@ document.getElementById('deposit_btn').addEventListener('click',function(){
         const withdrawTotalAmountString = withdrawTotal.value;
         const withdrawAmount = parseFloat(withdrawTotalAmountString);
         withdrawTotal.value = '';
+        if(isNaN(withdrawAmount)){
+            alert('please insert number');
+            return;
+        }
         
         const previousWithdrawElement = document.getElementById('previous_withdraw');
         const previousWithdrawAmountString = previousWithdrawElement.innerText;
